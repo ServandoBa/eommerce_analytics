@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: stg_orders
+    description: Ordenes limpias y tipadas desde raw.
+    columns:
+      - name: order_id
+        tests:
+          - not_null
+          - unique
+      - name: customer_id
+        tests:
+          - not_null
+  - name: stg_order_items
+    description: Detalle de productos por orden.
+  - name: stg_customers
+    description: Clientes normalizados desde raw.

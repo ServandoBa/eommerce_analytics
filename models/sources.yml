@@ -1,0 +1,19 @@
+version: 2
+
+sources:
+  - name: raw_ecommerce
+    database: inbound-byte-417306
+    schema: ecomm_analytics_raw
+    description: Raw zone para datos de e-commerce aterrizados por batches.
+    tables:
+      - name: orders
+        description: Ordenes sin transformar.
+        columns:
+          - name: order_id
+            tests:
+              - not_null
+              - unique
+      - name: order_items
+        description: Lineas de detalle por orden.
+      - name: customers
+        description: Clientes sin transformar.
